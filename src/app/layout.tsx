@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import {  Poppins } from "next/font/google";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./globals.css";
 import Navbar from "@/_components/shares/Navbar";
 
@@ -23,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppinsFont.className} antialiased`}>
         <Navbar />
-        <main className="max-w-7xl w-11/12 mx-auto">{children}</main>
+        <main className="max-w-7xl mx-auto">{children}</main>
       </body>
     </html>
   );
