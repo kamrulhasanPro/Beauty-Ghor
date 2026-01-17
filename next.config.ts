@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
       //   pathname: "https://i.postimg.cc/**",
       // },
       new URL("https://i.postimg.cc/**"),
+      new URL("https://bk.shajgoj.com/storage/2025/12/sku-11589-y5ou.jpg"),
     ],
   },
 };
