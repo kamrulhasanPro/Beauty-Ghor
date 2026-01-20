@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { BellRing, BellRingIcon, HandbagIcon, Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -22,6 +22,8 @@ export default function Navbar() {
       <MyLink href="/">Home</MyLink>
       <MyLink href="/products">Products</MyLink>
       <MyLink href="/about">About</MyLink>
+      <BellRingIcon />
+      <HandbagIcon />
       <Button size="sm" className="cursor-pointer hover:bg-pink-500 transition">
         Login
       </Button>
@@ -41,7 +43,11 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden cursor-pointer">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden cursor-pointer"
+            >
               <Menu />
             </Button>
           </SheetTrigger>
@@ -54,7 +60,6 @@ export default function Navbar() {
             <nav className="flex flex-col gap-4 px-4">{navList}</nav>
           </SheetContent>
         </Sheet>
-
       </div>
     </header>
   );

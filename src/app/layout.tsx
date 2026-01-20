@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import {  Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./globals.css";
-import Navbar from "@/_components/shares/Navbar";
+import Navbar from "@/components/shares/Navbar";
 
 const poppinsFont = Poppins({
   weight: ["400", "500", "600", "700", "800"],

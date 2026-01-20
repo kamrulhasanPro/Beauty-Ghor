@@ -144,5 +144,6 @@
 
 /* active dot */
 .slick-dots li.slick-active button:before {
-  color: var(--primary); /* brand color */
+  font-size: 12px;
+  color: var(--primary);
 }
