@@ -11,7 +11,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   // const discount = (originalPrice * discountPercentage) / 100;
 
   return (
-    <div className="border rounded-2xl overflow-hidden hover:bg-primary/10 duration-300 hover:scale-[1.03] relative group">
+    <div className="border rounded-2xl overflow-hidden hover:bg-primary/10 duration-300 hover:scale-[1.03] relative group flex flex-col">
       {/* discount box */}
       <div className="absolute inset-0 bg-red-400 h-5 w-fit text-sm text-white px-2 rounded-br-sm z-30">
         {discountPercentage}% off
@@ -31,15 +31,15 @@ const ProductCard = ({ product }: { product: Product }) => {
       </figure>
 
       {/* text content */}
-      <div className="mt-3 px-2">
+      <div className="mt-3 px-2 grow flex flex-col">
         <Link
           href={`/products/${_id}`}
           className="text-sm text-center text-gray-700 line-clamp-2"
         >
           {title}{" "}
         </Link>
-
-        <h5 className="text-center text-xl font-semibold mt-4 text-">
+        <div className="grow"/>
+        <h5 className="text-center text-xl font-semibold mt-4 ">
           <small className="text-red-300 mr-1 text-sm">
             <del>{originalPrice}$</del>
           </small>

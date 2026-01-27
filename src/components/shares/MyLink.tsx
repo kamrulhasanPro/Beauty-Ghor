@@ -8,6 +8,7 @@ const MyLink = ({
 }: {
   children: React.ReactNode;
   href: string;
+  end: boolean
 }) => {
   const path = usePathname();
   console.log(path);

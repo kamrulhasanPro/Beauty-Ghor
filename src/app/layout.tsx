@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./globals.css";
 import Navbar from "@/components/shares/Navbar";
+import { AddCartProvider } from "@/contexts/AddCartContext";
 
 const poppinsFont = Poppins({
   weight: ["400", "500", "600", "700", "800"],
@@ -25,8 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppinsFont.className} antialiased`}>
-        <Navbar />
-        <main className="max-w-7xl mx-auto">{children}</main>
+        <AddCartProvider>
+          <Navbar />
+          <main className="max-w-7xl mx-auto">{children}</main>
+        </AddCartProvider>
       </body>
     </html>
   );

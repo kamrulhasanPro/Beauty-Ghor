@@ -22,3 +22,12 @@ export interface Product {
   reviewsCount: number;
   createdAt: string;
 }
+
+export interface params {
+  id: string;
+}
+
+export interface CartContextType {
+  products: string[];
+  addCart: (id: string) => void;
+};

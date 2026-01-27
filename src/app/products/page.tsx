@@ -2,7 +2,7 @@ import React from "react";
 import MyContainer from "@/components/shares/MyContainer";
 import MyTitle from "@/components/shares/MyTitle";
 import ProductCard from "@/components/cards/ProductCard";
-import { getProducts } from "../actions/produts";
+import { getProducts } from "../actions/products";
 
 export default async function Products() {
   const products = await getProducts();

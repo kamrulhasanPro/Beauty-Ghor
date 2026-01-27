@@ -15,15 +15,22 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import MyLink from "./MyLink";
+import NotifyIcon from "./NotifyIcon";
+import useCart from "@/Hooks/useCart";
 
 export default function Navbar() {
+  const { products } = useCart();
   const navList = (
     <>
       <MyLink href="/">Home</MyLink>
       <MyLink href="/products">Products</MyLink>
       <MyLink href="/about">About</MyLink>
-      <BellRingIcon />
-      <HandbagIcon />
+      <NotifyIcon value={products}>
+        <HandbagIcon />
+      </NotifyIcon>
+      <NotifyIcon value={products}>
+        <BellRingIcon />
+      </NotifyIcon>
       <Button size="sm" className="cursor-pointer hover:bg-pink-500 transition">
         Login
       </Button>
