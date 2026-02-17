@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -8,7 +10,6 @@ const MyLink = ({
 }: {
   children: React.ReactNode;
   href: string;
-  end: boolean
 }) => {
   const path = usePathname();
   console.log(path);

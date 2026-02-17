@@ -1,6 +1,6 @@
 "use client";
-import { CartContextType } from "@/types/types";
-import React, { createContext, useState } from "react";
+import { CartAction, CartContextType, CartStateType } from "@/types/types";
+import React, { createContext, useReducer, useState } from "react";
 
 export const CartProvider = createContext<CartContextType | null>(null);
 
@@ -9,19 +9,37 @@ export const AddCartProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [products, setProducts] = useState<string[]>([]);
-
-  const addCart = (id: string) => {
-    setProducts([...products, id]);
+  // initial cartItems
+  const initialState: CartStateType = {
+    cart: [],
   };
 
-  const whitelistProduct: CartContextType = {
-    products,
-    addCart,
+  // reducer
+  const reducer = (state: CartStateType, action: CartAction) => {
+    switch (action.type) {
+      case "ADD": {
+        return {
+          cart: [...state.cart, { id: action.payload.id, quantity: 1 }],
+        };
+      }
+      case "REMOVE": {
+        const remaining = state.cart.filter(
+          (item) => item.id !== action.payload.id,
+        );
+
+        return { cart: [...remaining] };
+      }
+    }
   };
+
+  // state
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // pass data
+  const CartItemsProduct: CartContextType = { state, dispatch };
 
   return (
-    <CartProvider.Provider value={whitelistProduct}>
+    <CartProvider.Provider value={CartItemsProduct}>
       {children}
     </CartProvider.Provider>
   );

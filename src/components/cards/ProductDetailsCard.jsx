@@ -35,7 +35,8 @@ export default function ProductDetailsCard({ product }) {
       {/* Product Image Section */}
       <div className="bg-white p-6 rounded-xl shadow">
         <Image
-          src={thumbnail}
+          // src={thumbnail}
+          src="https://bk.shajgoj.com/storage/2025/12/sku-11589-y5ou.jpg"
           alt={title}
           width={500}
           height={500}
@@ -46,7 +47,8 @@ export default function ProductDetailsCard({ product }) {
           {images.map((img, index) => (
             <Image
               key={index}
-              src={img}
+              // src={img}
+              src="https://bk.shajgoj.com/storage/2025/12/sku-11589-y5ou.jpg"
               alt="product"
               width={80}
               height={80}
@@ -58,7 +60,7 @@ export default function ProductDetailsCard({ product }) {
 
       {/* Product Info Section */}
       <div>
-        <h1 className="text-3xl font-bold">{title}</h1>
+        <h1 className="text-3xl font-semibold">{title}</h1>
         <p className="text-gray-500 mt-1">
           {brand} • {category}
         </p>

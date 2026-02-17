@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface Product {
   _id: string;
   slug: string;
@@ -27,7 +29,18 @@ export interface params {
   id: string;
 }
 
+export interface CartStateType {
+  cart: {
+    id: string;
+    quantity: number;
+  }[];
+}
+
 export interface CartContextType {
-  products: string[];
-  addCart: (id: string) => void;
-};
+  state: CartStateType;
+  dispatch: React.Dispatch<CartAction>;
+}
+
+export type CartAction =
+  | { type: "ADD"; payload: { id: string } }
+  | { type: "REMOVE"; payload: { id: string } };

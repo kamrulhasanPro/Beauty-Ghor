@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import { BellRing, BellRingIcon, HandbagIcon, Menu } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -14,35 +11,34 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import CartItems from "./CartItems";
 import MyLink from "./MyLink";
-import NotifyIcon from "./NotifyIcon";
-import useCart from "@/Hooks/useCart";
+import Logo from "./Logo";
 
 export default function Navbar() {
-  const { products } = useCart();
   const navList = (
     <>
       <MyLink href="/">Home</MyLink>
       <MyLink href="/products">Products</MyLink>
       <MyLink href="/about">About</MyLink>
-      <NotifyIcon value={products}>
-        <HandbagIcon />
-      </NotifyIcon>
-      <NotifyIcon value={products}>
+
+      {/* cart item */}
+      <CartItems/>
+
+      <div>
         <BellRingIcon />
-      </NotifyIcon>
+      </div>
       <Button size="sm" className="cursor-pointer hover:bg-pink-500 transition">
         Login
       </Button>
     </>
   );
+
   return (
     <header className="w-full shadow">
       <div className="max-w-7xl w-11/12 mx-auto flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-xl font-semibold">
-          <span className="text-pink-400">Beauty</span> Ghor
-        </Link>
+        <Logo/>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6">{navList}</nav>
